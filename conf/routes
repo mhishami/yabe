@@ -2,11 +2,20 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Import CRUD route
+*		/admin									module:crud
+
 # Home page
 GET     /                                       Application.index
+GET     /posts/{<[0-9]+>id}             		Application.show
+GET     /posts/{tag}                    		Application.listTagged 
+
+POST	/posts/{postId}/comments				Application.postComment
+GET		/captcha								Application.captcha
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+

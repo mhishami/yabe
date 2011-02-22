@@ -25,4 +25,8 @@ public class Comment extends Model {
 		this.postedAt = new Date();
 	}
 	
+	@Override
+	public String toString() {
+		return author + ":- " + content;
+	}
 }
